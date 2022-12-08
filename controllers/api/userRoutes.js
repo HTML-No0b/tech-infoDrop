@@ -17,3 +17,28 @@ router.post("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.post('/login', async (req,res)=>{
+    try{
+        const dbPostData = await User.findOne({
+            where:{
+                email: req.body.email,
+            }
+        });
+        if (!dbPostData){
+            respose
+            .status(400)
+            .json({message: 'Wrong Email or Password. Try again.'})
+            return;
+        }
+        const correctPassword = await dbPostData.checkPassword(res.body.password);
+        if(!correctPassword){
+            respose
+            .status(400)
+            .json({message: 'Wrong Email or Password. Try again.'})
+            return;
+        }
+
+
+    }
+})
