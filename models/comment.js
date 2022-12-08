@@ -34,3 +34,6 @@ Comment.init(
     freezeTableName: true,
   }
 );
+
+
+module.exports = Comment

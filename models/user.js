@@ -26,6 +26,15 @@ User.init(
             validate:{
                 len:[8]
             }
+        },
+        email:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            unique:true,
+            validate:{
+                isEmail:true
+            }
+
         }
     },
     {
