@@ -15,11 +15,11 @@ Post.init(
             type:DataTypes.STRING,
             allowNull:false
         },
-        post_content:{
+        post:{
             type:DataTypes.TEXT,
             allowNull:true
         },
-        user_id:{
+        userID:{
             type:DataTypes.INTEGER,
             references:{
                 model:"user",
@@ -33,3 +33,5 @@ Post.init(
         freezeTableName:true
     }
 )
+
+module.exports = Post
