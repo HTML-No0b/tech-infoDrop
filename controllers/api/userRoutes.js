@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { response } = require("express");
 const { User } = require("../../models");
 
 router.post("/", async (req, res) => {
@@ -38,7 +39,15 @@ router.post('/login', async (req,res)=>{
             .json({message: 'Wrong Email or Password. Try again.'})
             return;
         }
+        req.session.save(()=>{
+            req.session.loggedIn = true,
 
-
+            response
+            .status(200).json({user:dbPostData, message: "You're logged in!"
+        })
+        })
     }
-})
+    catch (err) {
+      res.status(400).json(err);
+    }
+  });
