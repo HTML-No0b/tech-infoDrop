@@ -1,1 +1,9 @@
-const router = require('')
+{{#if posts.length}}
+<section>
+    <h1>Your Drops</h1>
+    {{#each posts as |post|}}
+    {{> dashboard-postinfo post}}
+    {{/each}}
+</section>
+{{/if}}
+<button type="submit" class="btn"><a class="link" href= "/dashboard/new">+ New Drop</a></button>
