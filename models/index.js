@@ -19,11 +19,15 @@ Comment.belongsTo(User,{
     forienKey:"user_id",
     onDelete:'cascade',
     hooks:true
-})
+});
 
 User.hasMany(Comment,{
     forienKey:"user_id"
+});
+Post.hasHook(Comment,{
+    forienKey:"post_id",
+    onDelete:"cascade",
+    hooks:true
 })
 
-
-module.exports = {User,Comment,Post}
+module.exports = {User,Post,Comment}
