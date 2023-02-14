@@ -7,24 +7,23 @@ User.hasMany(Post,{
 });
 Post.belongsTo(User,{
     forienKey:"user_id"
-})
+});
 
 Comment.belongsTo(User,{
-    forienKey:"post_id"
-})
+    forienKey:"post_id",
+    onDelete:'cascade',
+    hooks:true
+});
 
 Comment.belongsTo(User,{
-    forienKey:"user_id"
+    forienKey:"user_id",
+    onDelete:'cascade',
+    hooks:true
 })
 
 User.hasMany(Comment,{
     forienKey:"user_id"
 })
-
-
-
-
-
 
 
 module.exports = {User,Comment,Post}

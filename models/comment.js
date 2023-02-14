@@ -9,31 +9,36 @@ Comment.init(
       type: Datatypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
+    commentInput:{  
+      type:Datatypes.STRING,
+      allowNull:false,
+      validate:{len:[1]}
 
+
+    },
     postID: {
       type: Datatypes.TEXT,
-      allowNull: true,
       references: {
         model: "user",
-        key: "id",
-      },
+        key: "id"
+      }
     },
     userId: {
       type: Datatypes.INTEGER,
       references: {
         model: "user",
-        key: "id",
-      },
+        key: "id"
+      }
     },
   },
   {
     sequelize,
-    modelName: "post",
-    freezeTableName: true,
+    modelName: "comment",
+    freezeTableName: true
   }
 );
 
 
-module.exports = Comment
+module.exports = Comment;
